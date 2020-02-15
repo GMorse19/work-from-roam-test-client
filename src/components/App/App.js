@@ -8,6 +8,8 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import WorkSpaces from '../work-spaces/WorkSpaces.js'
+import WorkSpaceCreate from '../work-spaces/WorkSpaceCreate.js'
 
 class App extends Component {
   constructor () {
@@ -53,6 +55,12 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <Route user={user} exact path='/work_spaces' render={() => (
+            <WorkSpaces alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-work-space' render={() => (
+            <WorkSpaceCreate alert={this.alert} user={user} />
           )} />
         </main>
       </Fragment>
